@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-data-population-app
+  namespace: go-api-practice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-data-population-app
+  template:
+    metadata:
+      labels:
+        app: test-data-population-app
+    spec:
+      containers:
+        - name: test-data-population-app
+          image: lokinious/test-data-population-app:latest  # Change this to your Docker image name
+          ports:
+            - containerPort: 8080
